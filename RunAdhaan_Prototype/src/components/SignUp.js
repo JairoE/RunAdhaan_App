@@ -28,12 +28,13 @@ export default class SignIn extends Component {
         await firebase.auth()
             .createUserWithEmailAndPassword(email, pass);
 
-        console.log("Account created");
+      console.log("Account created");
+      debugger
 
         // Navigate to the Home page, the user is auto logged in
       this.props.navigation.navigate('Home');
     } catch (error) {
-        console.log(error.toString())
+        Alert.alert(error.toString())
     }
 
   }
@@ -52,15 +53,15 @@ export default class SignIn extends Component {
       <Text style={styles.title}>Email Address</Text>
       <TextInput style={styles.itemInput} onChange={this.handleChange('email')} />
       <Text style={styles.title}>Password</Text>
-      <TextInput style={styles.itemInput} onChange={this.handleChange('password')} />
+      <TextInput secureTextEntry={true} style={styles.itemInput} onChange={this.handleChange('password')} />
       <Text style={styles.title}>Confirm Password</Text>
-      <TextInput style={styles.itemInput} onChange={this.handleChange('confirm_password')} />
+      <TextInput secureTextEntry={true} style={styles.itemInput} onChange={this.handleChange('confirm_password')} />
       <TouchableHighlight
         style={styles.button}
         underlayColor="white"
         onPress={this.handleSubmit}
       >
-        <Text style={styles.buttonText}>Sign In</Text>
+        <Text style={styles.buttonText}>Sign Up</Text>
       </TouchableHighlight>
       </View>
     )

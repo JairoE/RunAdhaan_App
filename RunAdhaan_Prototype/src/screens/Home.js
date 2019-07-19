@@ -1,22 +1,20 @@
+
 import React, { Component } from 'react';
 import {
   View,
   Text,
-  TouchableHighlight,
-  StyleSheet,
-  TextInput,
-  Alert,
   Button
 } from 'react-native';
 
-export default class Home extends Component {
 
+export default class Home extends Component {
+  static navigationOptions = {
+    title: 'Home',
+  };
 
   render() {
     return (
       <View>
-        <Text>Home Screen</Text>
-        <Button title="Sign Up" color="blue" onPress={() => this.props.navigation.navigate('SignUp')}/>
         <Button
           title="Add an Item"
           onPress={() => this.props.navigation.navigate('AddItem')}
@@ -30,4 +28,3 @@ export default class Home extends Component {
     );
   }
 }
-
