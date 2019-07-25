@@ -7,8 +7,9 @@ let firebaseConfig = {
   authDomain: "runadhaan-test.firebaseapp.com",
   databaseURL: "https://runadhaan-test.firebaseio.com",
   projectId: "runadhaan-test",
-  storageBucket: "",
+  storageBucket: "runadhaan-test.appspot.com",
   messagingSenderId: "909319606644",
+  appId: "1:909319606644:web:06ac772a3266e2e4"
 };
 // Initialize Firebase
 let app = Firebase.initializeApp(firebaseConfig);

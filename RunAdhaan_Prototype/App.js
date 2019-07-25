@@ -9,6 +9,7 @@ import AddItem from './src/screens/AddItem';
 import List from './src/screens/List';
 import SignUp from './src/components/SignUp';
 import LogIn from './src/components/LogIn';
+import AuthMethods from './src/components/AuthMethods';
 
 const AppNavigator = createStackNavigator({
   Welcome: {

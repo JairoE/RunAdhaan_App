@@ -13,7 +13,8 @@ import firebase from 'firebase';
 export default class LogIn extends Component {
   state = {
     email: '',
-    password: ''
+    password: '',
+    signInMethod: false
   };
 
 
@@ -32,6 +33,9 @@ export default class LogIn extends Component {
 
     } catch (error) {
       Alert.alert(error.toString())
+      console.log(error.code)
+      console.log(error.message)
+
     }
 
   }
@@ -41,20 +45,61 @@ export default class LogIn extends Component {
       this.login(this.state.email, this.state.password)
   };
 
+  emailSignIn = () => {
+    return (
+      <View>
+        <Text style={styles.title}>Email Address</Text>
+        <TextInput style={styles.itemInput} onChange={this.handleChange('email')} />
+        <Text style={styles.title}>Password</Text>
+        <TextInput secureTextEntry={true} style={styles.itemInput} onChange={this.handleChange('password')} />
+        <TouchableHighlight
+          style={styles.button}
+          underlayColor="white"
+          onPress={this.handleSubmit}
+        >
+          <Text style={styles.buttonText}>Log In</Text>
+        </TouchableHighlight>
+      </View>
+    )
+  }
+
+  onLoginSelection = (method) => {
+    this.setState({
+      signInMethod: method
+    })
+  }
+
   render() {
+    let chosenSignIn = this.state.signInMethod
     return (
       <View style={styles.main}>
-      <Text style={styles.title}>Email Address</Text>
-      <TextInput style={styles.itemInput} onChange={this.handleChange('email')} />
-      <Text style={styles.title}>Password</Text>
-      <TextInput secureTextEntry={true} style={styles.itemInput} onChange={this.handleChange('password')} />
-      <TouchableHighlight
-        style={styles.button}
-        underlayColor="white"
-        onPress={this.handleSubmit}
-      >
-        <Text style={styles.buttonText}>Log In</Text>
-      </TouchableHighlight>
+        { chosenSignIn ?
+          (<View>
+            <View style={{backgroundColor: 'white'}}>
+              <Button
+                onPress={this.onLoginSelection('Google')}
+                title="Google Sign In"
+                color="black"
+              />
+            </View>
+            <View style={{ backgroundColor: 'blue' }}>
+              <Button
+                onPress={this.onLoginSelection('Facebook')}
+                title="Facebook Sign In"
+                color="white"
+              />
+            </View>
+            <View style={{backgroundColor: 'red'}}>
+              <Button
+                onPress={this.onLoginSelection('Email')}
+                title="Email Sign In"
+                color="white"
+              />
+          </View>
+          </View>)
+          :
+          (this.emailSignIn())
+      }
       </View>
     )
   }

@@ -23,7 +23,7 @@ export default class SignIn extends Component {
   };
 
   async signup(email, pass) {
-
+    // TODO: Check for real email address
     try {
         await firebase.auth()
             .createUserWithEmailAndPassword(email, pass);

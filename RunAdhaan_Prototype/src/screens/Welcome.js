@@ -19,9 +19,10 @@ export default class Welcome extends Component {
       <View>
         <Button title="Sign Up" color="blue" onPress={() => this.props.navigation.navigate('SignUp')}/>
         <Button
-          title="SignIn" color="red"
+          title="Log In" color="red"
           onPress={() => this.props.navigation.navigate('LogIn')}
         />
+
       </View>
     );
   }
