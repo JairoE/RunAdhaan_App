@@ -8,15 +8,18 @@ import Home from './src/screens/Home';
 import AddItem from './src/screens/AddItem';
 import List from './src/screens/List';
 import SignUp from './src/components/SignUp';
-import LogIn from './src/components/LogIn';
-import AuthMethods from './src/components/AuthMethods';
+import LogInOptions from './src/screens/LogInOptions';
+import EmailLogIn from './src/screens/EmailLogin'
 
 const AppNavigator = createStackNavigator({
   Welcome: {
     screen: Welcome,
   },
-  LogIn: {
-    screen: LogIn,
+  LogInOptions: {
+    screen: LogInOptions,
+  },
+  EmailLogIn: {
+    screen: EmailLogIn
   },
   SignUp: {
     screen: SignUp,
@@ -24,9 +27,6 @@ const AppNavigator = createStackNavigator({
   Home: {
     screen: Home,
   },
-  List: {
-    screen: List
-  }
 }, {
   initialRouteName: 'Welcome'
 });

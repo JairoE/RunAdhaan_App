@@ -20,7 +20,7 @@ export default class Welcome extends Component {
         <Button title="Sign Up" color="blue" onPress={() => this.props.navigation.navigate('SignUp')}/>
         <Button
           title="Log In" color="red"
-          onPress={() => this.props.navigation.navigate('LogIn')}
+          onPress={() => this.props.navigation.navigate('LogInOptions')}
         />
 
       </View>
