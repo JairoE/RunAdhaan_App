@@ -9,7 +9,6 @@ import {
   Button
 } from 'react-native';
 import firebase from 'firebase';
-import { GoogleSignin, GoogleSigninButton } from 'react-native-google-signin';
 
 export default class LogInOptions extends Component {
   state = {
@@ -43,12 +42,13 @@ export default class LogInOptions extends Component {
     
     return (< View style={styles.main}>
       <View>
-        <GoogleSigninButton
-        style={{ width: 192, height: 48 }}
-        size={GoogleSigninButton.Size.Wide}
-        color={GoogleSigninButton.Color.Dark}
-        onPress={this._signIn}
-        disabled={this.state.isSigninInProgress} />
+      <View style={{ backgroundColor: 'white' }}>
+          <Button
+            onPress={() => this.onLoginSelection('Google')}
+            title="Google Sign In"
+            color="gray"
+          />
+        </View>
         <View style={{ backgroundColor: 'blue' }}>
           <Button
             onPress={() => this.onLoginSelection('Facebook')}
