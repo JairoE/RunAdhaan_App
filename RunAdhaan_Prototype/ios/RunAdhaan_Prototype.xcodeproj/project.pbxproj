@@ -20,6 +20,7 @@
 		91674399B83F92C41E20792A /* libPods-RunAdhaan_Prototype-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 469DB53591C137826E10797C /* libPods-RunAdhaan_Prototype-tvOSTests.a */; };
 		94AEA42795C0916370F78592 /* libPods-RunAdhaan_Prototype.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AB432B18A7E37C4AD468002 /* libPods-RunAdhaan_Prototype.a */; };
 		CA801AB896BB8914D807366B /* libPods-RunAdhaan_PrototypeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F1BD7D8032E41B0285779A4C /* libPods-RunAdhaan_PrototypeTests.a */; };
+		F2609BAB22F8D06E00A7B09E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2609BA822F8D06E00A7B09E /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F1BD7D8032E41B0285779A4C /* libPods-RunAdhaan_PrototypeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RunAdhaan_PrototypeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F24D0E8922D7B3A700D00C87 /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNGestureHandler.xcodeproj; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; };
+		F2609BA822F8D06E00A7B09E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FECEC87795F1CE011ABB6F6D /* Pods-RunAdhaan_Prototype.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunAdhaan_Prototype.debug.xcconfig"; path = "Target Support Files/Pods-RunAdhaan_Prototype/Pods-RunAdhaan_Prototype.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,6 +142,7 @@
 		13B07FAE1A68108700A75B9A /* RunAdhaan_Prototype */ = {
 			isa = PBXGroup;
 			children = (
+				F2609BA822F8D06E00A7B09E /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -254,6 +257,7 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				4A1B58E6062FE19869144677 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -385,6 +389,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				F2609BAB22F8D06E00A7B09E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +460,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		4A1B58E6062FE19869144677 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RunAdhaan_Prototype/Pods-RunAdhaan_Prototype-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RunAdhaan_Prototype/Pods-RunAdhaan_Prototype-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		61F53F9DBB2903B3B4A37B6D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
