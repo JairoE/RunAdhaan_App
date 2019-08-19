@@ -8,6 +8,7 @@ import {
   Alert,
   Button
 } from 'react-native';
+import { GoogleSignin, GoogleSigninButton, statusCodes } from 'react-native-google-signin';
 import firebase from 'firebase';
 
 export default class LogInOptions extends Component {
@@ -15,40 +16,54 @@ export default class LogInOptions extends Component {
     chosenSignIn: false
   }
 
+  constructor() {
+    super()
+    GoogleSignin.configure({
+
+    });    
+  }
   onLoginSelection = (method) => {
     this.signInWith(method)
   }
 
-  async signInWith(method) {
-    if (method == "Google") {
-      var provider = new firebase.auth.GoogleAuthProvider();
-      try {
-        await firebase.auth().signInWithRedirect(provider);
-              console.log('signing in with google');
-              var token = result.credential.accessToken;
-              // The signed-in user info.
-              var user = result.user;
-      } catch (error) {
-        Alert.alert(error.toString())
-        console.log(error.code)
-        console.log(error.message)
-        console.log(error.email)
-        console.log(error.credential)
+  signIn = async () => {
+    try {
+      await GoogleSignin.hasPlayServices();
+      const userInfo = await GoogleSignin.signIn();
+      this.setState({ userInfo });
+    } catch (error) {
+      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+        // user cancelled the login flow
+      } else if (error.code === statusCodes.IN_PROGRESS) {
+        // operation (f.e. sign in) is in progress already
+      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+        // play services not available or outdated
+      } else {
+        // some other error happened
       }
     }
+  };
+
+  componentDidMount() {
+
   }
 
   render() {
     
+          // <Button
+          //   onPress={() => this.onLoginSelection('Google')}
+          //   title="Google Sign In"
+          //   color="gray"
+          // />
+    
     return (< View style={styles.main}>
-      <View>
-      <View style={{ backgroundColor: 'white' }}>
-          <Button
-            onPress={() => this.onLoginSelection('Google')}
-            title="Google Sign In"
-            color="gray"
-          />
-        </View>
+      <View style={{ alignItems: 'center'}}>
+          <GoogleSigninButton
+            style={{ width: 192, height: 48 }}
+            size={GoogleSigninButton.Size.Wide}
+            color={GoogleSigninButton.Color.Light}
+            onPress={this.signIn}
+            disabled={this.chosenSignIn} />
         <View style={{ backgroundColor: 'blue' }}>
           <Button
             onPress={() => this.onLoginSelection('Facebook')}
